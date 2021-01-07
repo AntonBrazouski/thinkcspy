@@ -8,10 +8,12 @@ def file_to_list(afile):
         alist = aline.split()
         blist.append(alist)
     fileref.close()
-
+    print(blist)
     return blist
 
 def min_list(alist):
+    if alist == []:
+        return None
     min = alist[0]
     for item in alist:
         if item < min:
@@ -27,7 +29,7 @@ def max_list(alist):
 
     return max
 
-
+#
 def calc_minimax(alist):
     min = 0
     max = 0
@@ -35,6 +37,7 @@ def calc_minimax(alist):
     name = alist[0]
     min = min_list(blist)
     max = max_list(blist)
+
     atuple = (name, min, max)
 
     return atuple
@@ -46,12 +49,7 @@ def process_lines():
     for item in alist:
         aline = calc_minimax(item)
         blist.append(aline)
-    
+
     return blist
 
-def nice_print():
-    lines = process_lines()
-    for item in lines:
-        print(f"{item[0].upper()} \t min score = {item[1]} \t max score= {item[2]} ")
-
-print(nice_print())
+print(process_lines())
