@@ -1,16 +1,20 @@
+def interpret():
+    file = 'labdata.txt'
+    with open(file, 'r') as f:
+        for line in f:
+            (x, y) =  line.split()
+            items.append(x, y)
 
 
-def file_to_list(afile):
-    fileref = open(file, 'r')
-    blist = []
-    # atuple = (0,0)
-    for aline in fileref:
-        alist = aline.split()
-        atuple = alist[0], alist[1]
-        blist.append(atuple)
-    print(blist)
-    fileref.close()
+def draw_cords(alist):
+    wn = turtle.Screen()
+    alex = turtle.Turtle()
+    for cords in alist:
+        alex.up()
+        alex.goto(cords[0],cords[1])
+        alex.stamp()
+    wn.exitonclick()
 
 
-file = 'labdata.txt'
-file_to_list(file)
+def plotRegression():
+    pass
